@@ -1,0 +1,17 @@
+view 모듈 분리
+
+1. newapp 폴더(디렉토리)에서 views 폴더(디렉토리)생성
+(=터미널 mkdir views)
+
+2. 파일 생성 (모듈 분리 .py파일 생성)
+3. 파일 분리할때는 목적과 용도에 맞게끔 생성하고 분리
+   용도 - newapp 관리를 위함
+   1. 기본기능 - list(index),detail / base_views
+   2. 질문 관리 기능 - question 관련 기능(질문 관련 기능) / question_views
+   3. 답변 관리 기능 - answer 관련 기능( 답변 관련 기능) / answer_views
+   4. 댓글 관리 기능 - comment 관련 기능( 댓글 관련 기능) /comment_views
+
+module import 한꺼번에 옮기기
+기존 옮기는 소스에서 import 했던 moudule 전부 복사 -> ctrl + alt + o(알파벳)
+
+4. __init__.py 파일을 복사해 온다.
