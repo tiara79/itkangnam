@@ -27,7 +27,12 @@ def signup(request):
         form = UserForm()
     return render(request, 'common/signup.html', {'form': form})
 
+# [21/04/27] 회원 가입 페이지 생성
 def agree(request):
     return render(request, 'common/agree.html')
+
+# [21/04/27] 서비스 게시판 페이지 생성
+def service(request):
+    return render(request, 'common/service.html')
 
 # Create your views here.

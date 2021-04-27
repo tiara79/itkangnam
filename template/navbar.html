@@ -36,12 +36,17 @@ function test(){
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'newapp:qna' %}">Q & A</a>
           </li>
+           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'common:service' %}">SERVICE</a>
+          </li>
         </ul>
     </div>
+
        <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+
 </nav>
 </body>
 </html>

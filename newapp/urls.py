@@ -11,7 +11,6 @@ from . import views
 app_name = 'newapp'
 # ------------------------------------------------------- #
 
-
 urlpatterns = [
 # 앱(newapp)을 추가할때 다른 앱(config/urls.py)하고 url 별칭이 중복되면 안된댜
     path('', views.index, name='index'),
