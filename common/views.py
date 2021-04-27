@@ -27,4 +27,7 @@ def signup(request):
         form = UserForm()
     return render(request, 'common/signup.html', {'form': form})
 
+def agree(request):
+    return render(request, 'common/agree.html')
+
 # Create your views here.

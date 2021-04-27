@@ -7,8 +7,29 @@ from newapp.models import Question
 def index(request):
     return render(request, 'newapp/main.html')
 
-def mainIndex(request):
-    return render(request, 'newapp/mainIndex.html')
+# 21/04/23 상품 전체 page 추가
+def infoIndex(request):
+    return render(request, 'newapp/infoIndex.html')
+
+# 21/04/26 상품 상세 top,jean,outer page 추가
+def infoTop(request):
+    return render(request, 'newapp/infoTop.html')
+
+def infoJean(request):
+    return render(request, 'newapp/infoJean.html')
+
+def infoOuter(request):
+    return render(request, 'newapp/infoOuter.html')
+
+# 21/04/27 단일 상품 top,jean,outer page 추가
+def topInfo(request):
+    return render(request, 'newapp/topInfo.html')
+
+def jeanInfo(request):
+    return render(request, 'newapp/jeanInfo.html')
+
+def outerInfo(request):
+    return render(request, 'newapp/outerInfo.html')
 
 def qna(request):
     # 조회 [21/04/15]

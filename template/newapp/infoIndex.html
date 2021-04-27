@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/infoIndex.css' %}">
+<link rel="stylesheet" href="{% static 'css/openMenu.css' %}">
+<script src="{% static 'js/fraggable.js' %}"></script>
+<body>
+<br>
+<h2>전체리스트</h2>
+<br>
+<div class="list_info">
+  <ul class="list">
+    <li>
+      <a href="{% url 'newapp:infoTop' %}" ><img src="/static/img/main1.png" alt="..."></a>
+       <div class="total">
+        <h1>Top</h1>
+        <p class="ist_text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </li>
+  </ul>
+  <ul class="list">
+    <li>
+      <a href="{% url 'newapp:infoJean' %}"><img src="/static/img/main2.png" alt="..."></a>
+       <div class="total">
+        <h1>Jean</h1>
+        <p class="ist_text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </li>
+  </ul>
+  <ul class="list">
+    <li>
+      <a href="{% url 'newapp:infoOuter' %}"><img src="/static/img/main3.png" alt="..."></a>
+       <div class="total">
+        <h1>Outer</h1>
+        <p class="list_text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- openMenu -->
+{% include "newapp/admin/openMenu.html" %}
+{% endblock %}
+</body>

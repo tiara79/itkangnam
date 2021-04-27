@@ -39,7 +39,17 @@ urlpatterns = [
 # 질문게시판 만들기
    path('question/qna/', views.qna, name='qna'),
 
-# 질문게시판 만들기
-   path('mainIndex/',views.mainIndex, name='mainIndex'),
-]
+# 전제 상품 리스트 page [21/04/26]
+   path('infoIndex/',views.infoIndex, name='infoIndex'),
 
+#  세부 상품 리스트 page [21/04/26]
+   path('infoTop/',views.infoTop, name='infoTop'),
+   path('infoJean/',views.infoJean, name='infoJean'),
+   path('infoOuter/',views.infoOuter, name='infoOuter'),
+
+#  단일 상품 리스트 page [21/04/26]
+   path('infoTop/topInfo/',views.topInfo, name='topInfo'),
+   path('infoJean/jeanInfo/', views.jeanInfo, name='jeanInfo'),
+   path('infoOuter/outerInfo/', views.outerInfo, name='outerInfo'),
+
+]

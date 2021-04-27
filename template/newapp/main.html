@@ -5,38 +5,11 @@
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 <script src="{% static 'js/fraggable.js' %}"></script>
 <!-- 시작 -->
-<div class="card" style="width: 18rem;">
-  <img src="/static/img/t.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card with stretched link</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="{% url 'newapp:mainIndex' %}" class="btn btn-primary stretched-link">Go somewhere</a>
-  </div>
-</div>
-
-
-
-
-
-
-<!-- open menu -->
-<div class="wrap">
-    <div class="openMenu">
-      <button class="open">
-        <img src="/static/img/openfox.png" id="openfox" alt="">
-      </button>
-    <div class="menuWrap">
-       <a href="#" class="close">
-            <img src="/static/img/close.png" alt="">
-       </a>
-        <a href="#" class="close en">close</a>
-        <ul class="tit en animation" data-animate="motion">
-            <li><a href="http://localhost:8000/admin"><span>관리자</span></a></li>
-            <li><a href="#"><span>Capabilities</span></a></li>
-            <li><a href="#"><span>Cases</span></a></li>
-            <li><a href="#"><span>Contact</span></a></li>
-        </ul>
-    </div>
+<div class="grid-container">
+  <div class="cloth-listing">
+    <a  href="{% url 'newapp:infoIndex' %}" class="cloth-title">enter</a>
+      <a class="cloth-image"><img src="/static/img/main.gif" alt="메인이미지" width="100%">
+      </a>
   </div>
 </div>
 {% endblock %}
