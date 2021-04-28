@@ -1,9 +1,14 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(minmax(300px));
-  grid-gap: 10px;
-  float: left;
+  grid-gap: 20px;
+  justify-content: center;
 }
+
+img { display: block;
+margin-left: auto;
+margin-right: auto; }
+
 /* hover styles */
 .cloth-listing {
   position: relative;

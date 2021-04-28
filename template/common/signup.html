@@ -1,42 +1,35 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>회원가입</title>
-</head>
-{% extends "base.html" %}
 <!-- [0419] 회원가입이 안되어 있을시 회원가입 -->
+{% extends "base.html" %}
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="/static/css/signupStyle.css">
+<script src="https://kit.fontawesome.com/fac1f30643.js" crossorigin="anonymous"></script>
 <body>
-<div class ="container my-3">
- <div class ="row my-3">
-      <div class="col-10 text-right">
-          <span>또는 <a href="{% url 'common:signup' %}">계정</a> 을 만드세요</span>
-      </div>
+<div id="login-form">
+  <h1>Sign Up</h1>
+  <form method="post" class="post-form" >
+   {% csrf_token %}
+   {% include "common/form_errors.html" %}
+  <div class="input-box">
+      <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="{{ form.username.value|default_if_none:'' }}">
   </div>
-    <form method="post" class="post-form" >
-        {% csrf_token %}
-        {% include "common/form_errors.html" %}
-      <div class="form-group">
-         <label for="username">사용자 이름</label>
-         <input type="text" class="form-control" name="username" id="username" value="{{ form.username.value|default_if_none:'' }}">
-      </div>
-      <div class="form-group">
-         <label for="password1">비밀번호 </label>
-         <input type="password" class="form-control" name="password1" id="password1" value="{{ form.password1.value|default_if_none:'' }}" >
-      </div>
-      <div class="form-group">
-         <label for="password2">비밀번호 확인</label>
-         <input type="password" class="form-control" name="password2" id="password2" value="{{ form.password2.value|default_if_none:'' }}" >
-      </div>
-      <div class="form-group">
-         <label for="email">E-mail</label>
-         <input type="text" class="form-control" name="email" id="email" value="{{ form.email.value|default_if_none:'' }}" >
-      </div>
-        <button type="submit" class="btn btn-primary">계정생성</button>
-    </form>
-
+  <div class="input-box">
+  <input type="password" class="form-control" placeholder="Password" name="password1" id="password1" value="{{ form.password1.value|default_if_none:'' }}" >
+  </div>
+  <div class="input-box">
+      <input type="password" class="form-control" name="password2" id="password2" placeholder="Re-Password" value="{{ form.password2.value|default_if_none:'' }}" >
+  </div>
+    <div class="input-box">
+      <input type="text" class="form-control" name="email" id="email" placeholder="E-mail" value="{{ form.email.value|default_if_none:'' }}" >
+    </div>
+  <label>
+    <input type="checkbox" name="remember"> Remember me
+  </label>
+  <button type="submit" class="login-btn">Login</button>
+  <div class="bottom-links">
+    <p> Don’t have account? <a href="{% url 'common:signup' %}" class="a"> Sign up</a></p>
+  </div>
+  </form>
 </div>
-</body>
 {% endblock %}
-</html>
+</body>

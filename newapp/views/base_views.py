@@ -31,6 +31,9 @@ def jeanInfo(request):
 def outerInfo(request):
     return render(request, 'newapp/outerInfo.html')
 
+def mission(request):
+    return render(request, 'newapp/admin/mission.html')
+
 def qna(request):
     # 조회 [21/04/15]
     # get('page','1'): 페이지으 파라미터가 없는 URL을 위해서 기본값을 지정해 줬음

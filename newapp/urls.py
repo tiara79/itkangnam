@@ -51,4 +51,5 @@ urlpatterns = [
    path('infoJean/jeanInfo/', views.jeanInfo, name='jeanInfo'),
    path('infoOuter/outerInfo/', views.outerInfo, name='outerInfo'),
 
+   path('admin/mission/', views.mission, name='mission'),
 ]

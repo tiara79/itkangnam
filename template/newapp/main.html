@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+
 {% block content %}
 <body>
 {% load static %}
@@ -7,10 +7,17 @@
 <!-- 시작 -->
 <div class="grid-container">
   <div class="cloth-listing">
-    <a  href="{% url 'newapp:infoIndex' %}" class="cloth-title">enter</a>
-      <a class="cloth-image"><img src="/static/img/main.gif" alt="메인이미지" width="100%">
+    <a  href="{% url 'newapp:infoIndex' %}" class="cloth-title" onclick="chrome();"> Enter </a>
+      <a class="cloth-image"><img src="/static/img/main.gif" alt="메인이미지">
       </a>
   </div>
 </div>
+<script>
+{% block script %}
+function chrome(){
+  alert("Chrome browser 사용을 권장 드립니다.");
+ }
+{% endblock %}
+</script>
 {% endblock %}
 </body>

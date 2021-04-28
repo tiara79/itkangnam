@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>Project</title>
-</head>
 <script>
 function test(){
     var alt = confirm("로그아웃 하시겠습니까?")
@@ -13,7 +7,8 @@ function test(){
 }
 </script>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom ">
+<div class="container-fluid">
     <a class="navbar-brand" href="{% url 'newapp:index' %}">
     <img src="/static/img/openfox.png" alt="Home" id="home_img" style="width:50px; height:50px;" ></a>
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -41,12 +36,10 @@ function test(){
           </li>
         </ul>
     </div>
-
-       <form class="d-flex">
+       <form class="d-flex" >
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-
+      </div>
 </nav>
 </body>
-</html>
