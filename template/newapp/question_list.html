@@ -1,5 +1,12 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 0414 -->
 {% extends 'base.html' %}
 {% load newapp_filter %}
+<head>
+    <meta charset="UTF-8">
+    <title>질문목록페이지</title>
+</head>
 <body>
 {% block content %}
 <!-- settings.py 안에 STATIC_URL = '/static/'
@@ -11,14 +18,13 @@ STATICFILES_DIRS =[BASE_DIR/ 'static',] 경로 설정 후  -->
 {% block script %}
 <script>
 $(document).ready(function(){
-    console.log("1");
     $(".page-link").on('click',function(){
     $("#page").val($(this).data("page"));
     $("#searchForm").submit();
   });
 
  $("#btn_search").on('click',function(){
-    alert("a");
+
     $("#kw").val($(".kw").val());  // .kw는 input class 의 (form-control kw) 의미
     $("#page").val(1);  // 1 page 부터 조회
     $("#searchForm").submit();
@@ -28,15 +34,13 @@ $(document).ready(function(){
 {% endblock %}
 <!-- 검색 기능 js end -->
 
-<br><br><br><br>
-<h2 style="color: #efcec5; text-align: center;"> Question </h2>
+ <!-- td 홀수 라인에 색상변화됨: table-striped -->
 <div class="container my-3">
-<!-- td 홀수 라인에 색상변화됨: table-striped -->
 <!-- [21/04/28] 검색 기능 추가 -->
 <div class="row justify-content-end my-3">
     <div class="col-3 input-group" >
         <div class="input-group"  >
-      <input type="text" class="form-control kw" value="">
+        <input type="text" class="form-control kw" value="">
             <button class="btn btn-outline" type="button" id="btn_search" >Search</button>
         </div>
     </div>
@@ -44,10 +48,10 @@ $(document).ready(function(){
   <table class="table table-striped">
     <thead>
     <!-- bootstrap에서 기본 제공하는 class="thead-dark"은 class="table"가 있어야지만 적용된다.  -->
-      <tr class="table-danger">
+      <tr class="table-danger ">
         <th> 글 번 호 </th>
         <th> 제    목 </th>
-        <th> 글 쓴 이 </th>
+        <th> 작 성 자 </th>
         <th> 작성 일자 </th>
         <!-- [21/04/27] 질문에 대한 추천 갯수 칼럼 추가 -->
         <th> 추    천 </th>
@@ -68,8 +72,7 @@ $(document).ready(function(){
 
           <!-- <td>{{ forloop.counter}}</td>-->
           <!--21/04/13 newapp/urls.py 에서 detail 별칭 부여 후 url(question.id) 작성   -->
-
-        <td><a href="{% url 'newapp:detail' question.id %}" >{{question.subject}}</a>
+         <td><a href="{% url 'newapp:detail' question.id %}" >{{question.subject}}</a>
          {% if question.answer_set.count > 0 %}
          <span class="text-danger small ml-2">{{ question.answer_set.count }}</span>
          {% endif %}
@@ -80,14 +83,6 @@ $(document).ready(function(){
          <td>
              {% if question.voter.all.count %}
              <span class="badge badge-waring px-2 py-1">{{ question.voter.all.count }}</span>
-             {% endif %}
-         </td>
-         <td>{{ question.author.username}}</td>
-         <td>{{ question.create_date }}</td>
-         <!-- [21/04/27] 질문에 대한 추천 갯수 칼럼 추가 -->
-         <td>
-             {% if question.voter.all.count %}
-             <span class="badge badge-waring px-2 py-1">{{ question.voter.all.count}}</span>
              {% endif %}
          </td>
      </tr>
@@ -128,8 +123,8 @@ $(document).ready(function(){
           </li>
         {% endif %}
       {% endif %}
-     {% endfor %}
-     {% if question_list1.has_next %}
+      {% endfor %}
+      {% if question_list1.has_next %}
       <li class="page-item">
           <!-- [Edit 21/04/28 ] 검색 기능 추가로 인한 페이징 처리방식 변경 -->
         <a class="page-link" href="#" data-page="{{ question_list1.next_page_number }}">다음</a>
@@ -143,9 +138,10 @@ $(document).ready(function(){
     <a href="{% url 'newapp:question_create' %}" class="btn btn-light">질문등록</a>
 </div>
 <!-- [21/04/28] 검색 값 전송 기능 추가 -->
-<form id="searchForm" method="get" action="{% url 'index' %}">
+<form id="searchForm" method="get" action="{% url 'newapp:qna' %}">
     <input type="hidden" id="kw" name="kw" value="">
     <input type="hidden" id="page" name="page" value="">
 </form>
 {% endblock %}
 </body>
+</html>

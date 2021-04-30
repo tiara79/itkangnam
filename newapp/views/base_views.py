@@ -27,11 +27,6 @@ def index(request):
     # __icontains 는 해해당컬럼의 값이 지정한 문자열을 포함하는 자료를 검색 할때 사용.
     # 예) like '%디장%' => subject__icontains ='디장' 제목에서 '디장' 을 의미 (db의 like 와 같은 기능)
 
-    if kw:
-        question_list = question_list.filter(
-            Q(subject__icontains=kw) | Q(content__icontains=kw)
-        ).distinct()
-
     # [21/04/15]
     # Paginator class 는  조회해온 값(question_list)을 페이징 객체(인스턴스)로 변환
     # 변환한 내용을 pagenator 객체(인스터스)에 저장
@@ -89,11 +84,17 @@ def qna(request):
     # 조회 [21/04/15]
     # get('page','1'): 페이지으 파라미터가 없는 URL을 위해서 기본값을 지정해 줬음
     page = request.GET.get('page', '1')
+    kw = request.GET.get('kw', '')
     # ---------------------- [edit 21/04/13 ]  ----------------- #
     # 게시판 출력
     question_list = Question.objects.order_by('-create_date')
     # print(type[question_list])
     # print("question_list': question_list")
+
+    if kw:
+        question_list = question_list.filter(
+            Q(subject__icontains=kw) | Q(content__icontains=kw)
+        ).distinct()
 
     # [21/04/15]
     # Paginator class는  조회해온 값(question_list)을 페이징 객체(인스턴스)로 변환
@@ -113,7 +114,7 @@ def qna(request):
     # .has_previous : 이전 페이지 유,무
     # .has_next : 다음 페이지 유,무
     page1 = pagenator.get_page(page)
-    context = {'question_list1': page1}
+    context = {'question_list1': page1,'page':page,'kw':kw}
 
     # context = {'question_list1': question_list}
     # print("context : ",context)

@@ -9,6 +9,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 from pathlib import Path
+# [21/04/30] import os 추가
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -113,7 +115,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static', ]
+# [21/04/30 ] poca.pythonanywhere.com 로 인한 경로 수정
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# [21/04/29 ] 경로 수정
+# STATICFILES_DIRS = [STATIC_DIR,]
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "web_staticfiles")
 
 # ---------------------- [edit-0416] ----------------- #
 # 로그인 /로그아웃 성공 후 이동 하는 URL
