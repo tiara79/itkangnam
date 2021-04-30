@@ -6,10 +6,41 @@
 STATICFILES_DIRS =[BASE_DIR/ 'static',] 경로 설정 후  -->
 <!-- C:\projects\jangosite\static 폴더안에 bootstrap.min.css 파일 불러옴 21/04/13-->
 {% load static %}
+<link rel ="stylesheet" type="text/css" href="{% static '/bootstrap.min.css' %}" >
+<!-- [21/04/28] 검색,페이지 number 에 대한 js 추가 -->
+{% block script %}
+<script>
+$(document).ready(function(){
+    console.log("1");
+    $(".page-link").on('click',function(){
+    $("#page").val($(this).data("page"));
+    $("#searchForm").submit();
+  });
+
+ $("#btn_search").on('click',function(){
+    alert("a");
+    $("#kw").val($(".kw").val());  // .kw는 input class 의 (form-control kw) 의미
+    $("#page").val(1);  // 1 page 부터 조회
+    $("#searchForm").submit();
+ });
+});
+</script>
+{% endblock %}
+<!-- 검색 기능 js end -->
+
 <br><br><br><br>
 <h2 style="color: #efcec5; text-align: center;"> Question </h2>
 <div class="container my-3">
-  <!-- td 홀수 라인에 색상변화됨: table-striped -->
+<!-- td 홀수 라인에 색상변화됨: table-striped -->
+<!-- [21/04/28] 검색 기능 추가 -->
+<div class="row justify-content-end my-3">
+    <div class="col-3 input-group" >
+        <div class="input-group"  >
+      <input type="text" class="form-control kw" value="">
+            <button class="btn btn-outline" type="button" id="btn_search" >Search</button>
+        </div>
+    </div>
+</div>
   <table class="table table-striped">
     <thead>
     <!-- bootstrap에서 기본 제공하는 class="thead-dark"은 class="table"가 있어야지만 적용된다.  -->
@@ -18,6 +49,8 @@ STATICFILES_DIRS =[BASE_DIR/ 'static',] 경로 설정 후  -->
         <th> 제    목 </th>
         <th> 글 쓴 이 </th>
         <th> 작성 일자 </th>
+        <!-- [21/04/27] 질문에 대한 추천 갯수 칼럼 추가 -->
+        <th> 추    천 </th>
       </tr>
     </thead>
     <tbody>
@@ -35,13 +68,28 @@ STATICFILES_DIRS =[BASE_DIR/ 'static',] 경로 설정 후  -->
 
           <!-- <td>{{ forloop.counter}}</td>-->
           <!--21/04/13 newapp/urls.py 에서 detail 별칭 부여 후 url(question.id) 작성   -->
-         <td><a href="{% url 'newapp:detail' question.id %}" >{{question.subject}}</a>
+
+        <td><a href="{% url 'newapp:detail' question.id %}" >{{question.subject}}</a>
          {% if question.answer_set.count > 0 %}
          <span class="text-danger small ml-2">{{ question.answer_set.count }}</span>
          {% endif %}
          </td>
-         <td>{{ question.author_username}}</td>
+         <td>{{ question.author.username}}</td>
          <td>{{ question.create_date}}</td>
+         <!-- [21/04/27] 질문에 대한 추천 갯수 칼럼 추가 -->
+         <td>
+             {% if question.voter.all.count %}
+             <span class="badge badge-waring px-2 py-1">{{ question.voter.all.count }}</span>
+             {% endif %}
+         </td>
+         <td>{{ question.author.username}}</td>
+         <td>{{ question.create_date }}</td>
+         <!-- [21/04/27] 질문에 대한 추천 갯수 칼럼 추가 -->
+         <td>
+             {% if question.voter.all.count %}
+             <span class="badge badge-waring px-2 py-1">{{ question.voter.all.count}}</span>
+             {% endif %}
+         </td>
      </tr>
     {% endfor %}
     {% else %}
@@ -55,9 +103,11 @@ STATICFILES_DIRS =[BASE_DIR/ 'static',] 경로 설정 후  -->
     <ul class="pagination justify-content-center">
       {% if question_list1.has_previous %}
       <li class="page-item">
-        <a class="page-link" href="?page={{ question_list1.previous_page_number }}">이전</a>
+         <!-- [Edit 21/04/28 ] 검색 기능 추가로 인한 페이징 처리방식 변경 -->
+        <a class="page-link" href="#" data-page="{{ question_list1.previous_page_number }}">이전</a>
       </li>
       {% else %}
+        <!-- 검색 결과가 없을 경우 -->
       <li class="page-item disabled" >
         <a class="page-link" href="#" tabindex="-1" aria-disabled="true" >이전</a>
       </li>
@@ -68,18 +118,21 @@ STATICFILES_DIRS =[BASE_DIR/ 'static',] 경로 설정 후  -->
         {%if page_number == question_list1.number %}
           <!-- from django.core.paginator import Paginator의 .number : 현재 페이지 번호 -->
           <li class="page-item active" aria-current="page">
-              <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+               <!-- [Edit 21/04/28 ] 검색 기능 추가로 인한 페이징 처리방식 변경 -->
+              <a class="page-link" href="#" data-page="{{ page_number }}">{{ page_number }}</a>
           </li>
           {% else %}
           <li class="page-item" >
-              <a class="page-link" href="?page={{ page_number }}" >{{ page_number }}</a>
+              <!-- [Edit 21/04/28 ] 검색 기능 추가로 인한 페이징 처리방식 변경 -->
+              <a class="page-link" href="#" data-page="{{ page_number }}">{{ page_number }}</a>
           </li>
         {% endif %}
       {% endif %}
-      {% endfor %}
-      {% if question_list1.has_next %}
+     {% endfor %}
+     {% if question_list1.has_next %}
       <li class="page-item">
-        <a class="page-link" href="?page={{ question_list1.next_page_number }}">다음</a>
+          <!-- [Edit 21/04/28 ] 검색 기능 추가로 인한 페이징 처리방식 변경 -->
+        <a class="page-link" href="#" data-page="{{ question_list1.next_page_number }}">다음</a>
       </li>
       {% else %}
       <li class="page-item disabled" >
@@ -89,5 +142,10 @@ STATICFILES_DIRS =[BASE_DIR/ 'static',] 경로 설정 후  -->
     </ul>
     <a href="{% url 'newapp:question_create' %}" class="btn btn-light">질문등록</a>
 </div>
+<!-- [21/04/28] 검색 값 전송 기능 추가 -->
+<form id="searchForm" method="get" action="{% url 'index' %}">
+    <input type="hidden" id="kw" name="kw" value="">
+    <input type="hidden" id="page" name="page" value="">
+</form>
 {% endblock %}
 </body>

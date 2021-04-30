@@ -1,5 +1,3 @@
-
-
 // background-color change
 $(window).on('scroll resize', function(){
   let scrollTop = $(document).scrollTop();

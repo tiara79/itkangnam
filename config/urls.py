@@ -30,4 +30,5 @@ urlpatterns = [
     # 21/04/16 common.urls 연결
     path('common/', include('common.urls')),
     path('', base_views.index, name='index'),
+
 ]

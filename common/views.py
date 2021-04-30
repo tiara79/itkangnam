@@ -9,7 +9,7 @@ from common.forms import UserForm
 def logout(request):
     auth.logout(request)
     # 로그아웃시 메인(index)으로 리턴
-    return redirect('index')
+    return redirect('newapp:infoIndex')
 
 # ----------------- [21/04/19]  회원가입 함수 생성 -----------------
 def signup(request):

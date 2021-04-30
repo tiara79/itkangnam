@@ -5,39 +5,39 @@
 <link rel="stylesheet" href="{% static 'css/infoIndex.css' %}">
 <link rel="stylesheet" href="{% static 'css/openMenu.css' %}">
 <script src="{% static 'js/fraggable.js' %}"></script>
-<body>
 <br>
-<h2 style="color: #efcec5;">전체리스트</h2>
+<h2 style="color: #efcec5; text-align:center;">전체리스트</h2>
 <br>
 <div class="list_info">
   <ul class="list">
     <li>
-      <a href="{% url 'newapp:infoTop' %}" ><img src="/static/img/main1.png" alt="..."></a>
+      <a href="{% url 'newapp:infoTop' %}" ><img src="/static/img/main2.png" alt="..."></a>
        <div class="total">
         <h1>Top</h1>
-        <p class="ist_text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="ist_text">루즈한 핏감으로 크게 사이즈 구애 없이 착용하기 좋으며, 활동하기에도 정말 편안합니다</p>
       </div>
     </li>
   </ul>
   <ul class="list">
     <li>
-      <a href="{% url 'newapp:infoJean' %}"><img src="/static/img/main2.png" alt="..."></a>
+      <a href="{% url 'newapp:infoJean' %}"><img src="/static/img/main3.png" alt="..."></a>
        <div class="total">
         <h1>Jean</h1>
-        <p class="ist_text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="ist_text">깔끔하고 세련된 9부 기장의 베이직 스트레이트핏 슬랙스 팬츠,다리라인을 슬림하게 연출 해 준답니다.</p>
       </div>
     </li>
   </ul>
   <ul class="list">
     <li>
-      <a href="{% url 'newapp:infoOuter' %}"><img src="/static/img/main3.png" alt="..."></a>
+      <a href="{% url 'newapp:infoOuter' %}"><img src="/static/img/main1.png" alt="..."></a>
        <div class="total">
         <h1>Outer</h1>
-        <p class="list_text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="list_text">클래식하게, 시크하게, 여성스럽게, 페미닌하게 다양한 무드로 변주 가능한 마성의 트렌치 아이템이예요.
+             <br> 기존의 트렌치에 더욱 편안하도록 여성스럽도록 디테일이 변경되었습니다.</p>
       </div>
     </li>
   </ul>
 </div>
+{% include 'newapp/admin/openMenu.html' %}
 {% endblock %}
-{% include "openMenu.html" %}
 </body>
