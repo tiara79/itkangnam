@@ -1,0 +1,109 @@
+<!-- 21/04/27 고객게시판 페이지 -->
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+  <link rel="stylesheet" type="text/css" href="/static/css/serviceReset.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/serviceDefault.css">
+  <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+  <script src="/static/js/prefixfree.min.js"></script>
+  <script src="/static/js/seviceToggle.js"></script>
+<body>
+  <div id="wrap">
+    <header class="header cfixed">
+      <h1 class="logo"><a href=""></a></h1>
+      <nav>
+        <ul class="gnb">
+          <li><a href="">HOME</a></li>
+          <li><a href="">WE ARE</a></li>
+          <li><a href="">WORK</a></li>
+          <li><a href="">BLOG</a></li>
+          <li><a href="">CONTACT US</a></li>
+        </ul>
+      </nav>
+      <span class="menu-toggle-btn"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </header>
+    <article class="slider">
+      <img src="/static/img/p-images/store.png" alt="">
+    </article>
+    <section class="content">
+      <section class="display-section">
+        <div class="container">
+          <h2 class="sec-tit">Fox Store</h2>
+          <p class="desc">The new store is open! Please feel free to visit me.</p>
+        </div>
+      </section>
+      <section class="promotion-section">
+        <div class="container">
+          <ul class="promo-list">
+            <li><a href =""><img src="/static/img/s-images/promo01.png" alt=""><h3>STORE</h3><P>Non aliqua consequat laboris et amet.</P></a></li>
+            <li><a href =""><img src="/static/img/s-images/promo02.png" alt=""><h3>MY PAGE</h3><P>Cupidatat labore duis nostrud Lorem fugiat eiusmod anim ea voluptate anim proident occaecat nulla labore.</P></a></li>
+            <li><a href =""><img src="/static/img/s-images/promo03.png" alt=""><h3>MARKET</h3><P>Reprehenderit laborum laboris dolore enim nulla amet culpa incididunt duis labore consectetur eiusmod.</P></a></li>
+            <li><a href =""><img src="/static/img//s-images/promo04.png" alt=""><h3>CUSTOMER CENTER</h3><P>Esse ex consequat officia officia quis.</P></a></li>
+          </ul>
+        </div>
+      </section>
+    <hr class="m-divider">
+    <section class="blog-section">
+      <div class="container">
+        <h2 class="sec-tit">EVENT</h2>
+        </br>
+        <ul class="blog-list">
+          <li><a href=""><img src="/static/img/p-images/xmas.png" alt=""></a><time datetime="2020-12-24">Dec 24, 2020</time><a href=""><h3>Cristmas event</h3></a></li>
+          <li><a href=""><img src="/static/img/p-images/someday.png" alt=""></a><time datetime="2021-01-01">Jan 01, 2020</time><a href=""><h3>somedays event</h3></a></li>
+          <li><a href=""><img src="/static/img/p-images/naver.png" alt=""></a><time datetime="2021-04-30">Apr 01, 2020</time><a href=""><h3>Naver event</h3></a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="contact-section">
+      <div class="container">
+        <h2 class="sec-tit">CONTACT</h2>
+        <div class="form-box">
+          <form action="" method="">
+            <fieldset class="cfixed">
+              <legend class="blind">CONTANCT US</legend>
+              <div class="form">
+                <label for ="name" class="blind">name</label>
+                <input type="text"     id="name"  placeholder="Name">
+                <label for ="phone" class="blind">phone</label>
+                <input type="tel"      id="phone" placeholder="Phone">
+                <label for ="email" class="blind">email</label>
+                <input type="email"    id="email" placeholder="Email">
+              </div>
+              <div class="textarea">
+                <label for="message" class="blind" >message</label><br>
+                <textarea name="message" id="message" placeholder="  Message"></textarea>
+              </div>
+            </fieldset>
+            <br>
+            <div class="send-btn">
+              <button>SEND MESSAGE</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </section>
+  <br>
+  <br>
+  <footer class="footer">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.111677235935!2d126.97473421573828!3d37.575987879796195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2eaa19c763d%3A0xb28a32722d675764!2z6rSR7ZmU66y4KEd3YW5naHdhbXVuIEdhdGUp!5e0!3m2!1sko!2skr!4v1481946656451" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <p class="copyright">FOX CUSTOMER CENTER</p>
+       <div class="footer_info">
+          <div style="font-size: 15px;"><i class="fas fa-home"></i>
+          <span>KangBookGu Seoul,KOREA </span></div><br>
+          <div style="font-size: 15px;"><i class="fas fa-phone"></i>
+          <span>+82 010-1234-5678 </span></div><br>
+       </div>
+       <div class="footer_info">
+           <div style="font-size: 15px;"><i class="fas fa-envelope"></i>
+           <span> Email@Address.com </span></div><br>
+           <div style="font-size: 15px;"><i class="fas fa-clock"></i>
+           <span> Mon-Fri 9:00 AM to 6:00 PM </span></div><br>
+       </div>
+  </footer>
+  </div>
+{% endblock %}
+</body>

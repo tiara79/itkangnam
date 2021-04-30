@@ -1,0 +1,64 @@
+h2{
+color:#efcec5;
+text-align: center;
+}
+/* ----title hover text ----- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(minmax(300px));
+  grid-gap: 10px;
+  float: left;
+}
+/* hover styles */
+.cloth-listing {
+  position: relative;
+}
+
+.cloth-title {
+  font-size: 0.8em;
+  font-weight: bold;
+  z-index: 1;
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .5s;
+  background: rgba(205, 24, 93, 0.241);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cloth-listing:hover .cloth-title {
+  text-decoration: none;
+  opacity: 0.5;
+  color: white;
+}
+/* ---- 구조 ----- */
+/* left small img */
+#thumb img {
+  width: 90%;
+}
+
+#thumb{
+  width: 13%;
+  /* height: 10%; */
+  float :left;
+  overflow: auto;
+}
+
+/* right large img */
+#detail{
+  width: 80%;
+  float: left;
+  overflow : hidden;
+}
+#wrapper{
+  background-color: #efcec5;
+  overflow: auto;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}

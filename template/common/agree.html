@@ -1,0 +1,29 @@
+<!-- 21/04/27 회원가입 페이지 -->
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+  <link rel="stylesheet" href="/static/css/agreeDefault.css">
+  <link rel="stylesheet" href="/static/css/agreeStyle.css">
+<body>
+<div class="contents">
+  <h2 class="h2">회원가입</h2>
+    <p> 사람을 아름답게 하는 저희 shopping mall을 찾아주셔서 감사합니다.<br>
+      회원이 되시면 저희 만의 혜택과 서비스를 누릴 수 있습니다.</p>
+  <ol class="step">
+    <li>SETP1<div>본인인증</div></li>
+    <li>SETP2<div>약관동의</div></li>
+    <li>SETP3<div>회원정보입력</div></li>
+    <li>SETP4<div>가입완료</div></li>
+  </ol>
+    <div class="join_box1">
+    <h3>회원가입여부 및 본인인증</h3>
+    <p>Login 을 클릭하여 본인인증 절차를 수행해 주세요</p>
+    <a href="{% url 'common:signup' %}">Login</a>
+
+  <p class="notice"><i class="fas info-circle"></i> 타인의 정보 및 주민등록번호를 도용하여 가입 하는 경우 3년 이하의 징역 또는 1천만원 이하의 벌금에 처해지게 됩니다.
+    <br>반드시 본인의 정보를 이용하여 가입해 주시기 바랍니다.</p>
+</div>
+</div>
+{% endblock %}
+</body>

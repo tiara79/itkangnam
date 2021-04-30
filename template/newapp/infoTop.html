@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/infobase.css' %}">
+{% block script %}
+<script>
+function setImage(path){
+  const big = document.getElementById('big');
+  big.src="/static/img/"+path;
+ }
+ function bigclick(big1){
+  var top= big1.slice(-8, big1.length);
+  if (top=='top1.png'){
+    location.href='topInfo'
+  }
+}
+{% endblock %}
+</script>
+<!-- 시작 -->
+<br>
+<h2>Top</h2>
+<br>
+<div id="wrapper">
+  <div id="thumb">
+    <div class="grid-container">
+      <div class="cloth-listing" onClick ="setImage('top1.png')" >
+        <a class="cloth-title" >컬러 맨투맨</a>
+        <img class="cloth-image" src="/static/img/top1.png" alt=""  >
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="cloth-listing" onClick ="setImage('top2.png')" >
+        <a class="cloth-title" >루즈핏 맨투맨</a>
+        <img class="cloth-image" src="/static/img/top2.png" alt="" >
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="cloth-listing" onClick ="setImage('top3.png')" >
+        <a class="cloth-title" >베이직 폴라티</a>
+        <img class="cloth-image" src="/static/img/top3.png" alt="" >
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="cloth-listing" onClick ="setImage('top4.png')"  >
+        <a class="cloth-title" >슬리브리스</a>
+        <img class="cloth-image" src="/static/img/top4.png" alt=""  >
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="cloth-listing" onClick ="setImage('top5.png')">
+        <a class="cloth-title" >레터링 맨투맨</a>
+        <img class="cloth-image" src="/static/img/top5.png" alt=""  >
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="cloth-listing"  onClick ="setImage('top6.png')" >
+        <a class="cloth-title" >후드 티셔츠 </a>
+        <img class="cloth-image" src="/static/img/top6.png" alt="">
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="cloth-listing" onClick ="setImage('top7.png')" >
+        <a class="cloth-title" >봄컬러 맨투맨</a>
+        <img class="cloth-image" src="/static/img/top7.png" alt="" >
+      </div>
+    </div>
+  </div>
+  <div id="detail">
+    <img id="big" src="/static/img/top4.png" onclick="bigclick(big.src);">
+  </div>
+</div>
+
+{% endblock %}
+</body>

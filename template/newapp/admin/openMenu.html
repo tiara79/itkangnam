@@ -1,0 +1,29 @@
+
+{% load static %}
+<script src="{% static 'jquery-3.6.0.min.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/openMenu.css' %}">
+<script src="{% static 'js/openMenu.js' %}"></script>
+<body>
+
+<!-- open menu -->
+<div class="wrap">
+<!-- open menu -->
+<div class="openMenu">
+  <button class="open">
+    <img src="/static/img/openfox.png" alt="" id="openfox">
+  </button>
+  <div class="menuWrap">
+    <a href="#" class="close">
+      <img src="/static/img/openfox.png" alt="" id="closefox">
+    </a>
+    <a href="#" class="close en">close</a>
+    <ul class="tit en animation" data-animate="motion">
+      <li><a href="http://localhost:8000/admin"><span><b>Admin</b></span></a></li>
+      <li><a href="{% url 'newapp:shoppingGuide' %}"><span><b>shoppingGuide</b></span></a></li>
+      <li><a href="#"><span><b>slogan</b></span></a></li>
+      <li><a href="#"><span><b>vision</b></span></a></li>
+    </ul>
+  </div>
+</div>
+</div>
+</body>

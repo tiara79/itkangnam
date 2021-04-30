@@ -1,0 +1,123 @@
+@charset "utf-8";
+@font-face {
+ font-family: 'handel gothic';
+ src: url(gothic.ttf) format('truetype');
+ font-family: arial;
+}
+.contents{
+  width: 100%;
+  margin: 0 auto;}
+
+.h2{
+ position: relative;
+ padding-top: 3%;
+ font-size: 30px;
+ color: #432554;
+ line-height: 100%;
+ text-align: center;
+ font-weight: bold;
+}
+.h2:after{
+ content:'';
+ position: absolute;
+ left: 50%;
+ bottom: -15px;
+ width: 130px;
+ height: 2px;
+ background: #3d10557e;
+ transform: translateX(-50%);
+}
+.h2+p{
+  padding: 35px 0 30px;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  line-height: 30px;
+}
+.step{
+  display: flex;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+.step li{
+  flex:1;
+  position: relative;
+  padding: 10px 0;
+  font-size:11px;
+  color: #222;
+  text-align: center;
+  height: 100%;
+}
+.step li:after{
+  right: 0;
+  top: 55%;
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 30px;
+  transform:translateY(-50%);
+  background:url('/static/img/right.png')no-repeat;
+}
+.step li:last-child:after{display: none;}
+
+.step li div{
+  font-size:18px;
+  color:purple;
+  /* text-align: center; */
+  padding: 8px 0 0;
+}
+.join_box1{
+  margin: 50px 0 32px;
+  padding: 20px 0 0;
+  height: 390px;
+  background: url('/static/img/bg_msgbox01.png')no-repeat 0 0,
+              url('/static/img/bg_msgbox02.png')no-repeat right bottom;
+  background-color: rgba(129, 141, 253, 0.274);
+  text-align: center;
+  box-sizing: border-box;
+}
+.join_box1 h3{
+  position: relative;
+  padding: 70px 0 40px;
+  font-size: 24px;
+  color: blueviolet;
+  background: url("/static/img/ico_member.png") no-repeat center top;
+  line-height: 100%;
+}
+.join_box1 h3:after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background:#222;
+  transform: translateX(-50%);
+}
+.join_box1 p{
+  padding: 37px 0 57px;
+  font-size: 14px;
+  color: rgb(177, 177, 177);
+}
+.join_box1 a{
+  display: inline-block;
+  width: 120px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  color : white;
+  font-size: 13px;
+  background: rgb(127, 148, 241);
+}
+.notice{
+  font-size: 14px;
+  color: #888;
+}
+.notice:before{
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 3px 0 0;
+  vertical-align: -3px;
+}
